@@ -1,0 +1,568 @@
+<html>
+<head>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700italic,700,400italic" rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<title>
+My Life Story
+</title>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script>
+$.fn.countedClick = function(f) {
+	this.each(function(i, j) {
+		$(j).attr("data-index", i);
+		$(j).click(function(e) {
+			f($(this).attr("data-index"), e);
+		});
+	});
+}
+
+$(function() {
+	$(".next").countedClick(function(i) {
+		$(".website").attr("class", "website loaded page-" + (+i + 1));
+	});
+});
+</script>
+<style>
+body {
+	margin: 0px;
+	-webkit-perspective: 1600px !important;
+	-webkit-perspective-origin: 50vw 50vh;
+	overflow: hidden;
+	background-image: url("Huge Tupster24 Logo.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+* {
+	-webkit-animation-fill-mode: both !important;
+	font-family: Ubuntu;
+	pointer-events: none;
+	-webkit-user-select: none;
+	cursor: default;
+}
+
+p {
+	text-align: justify;
+}
+
+h1 {
+	text-align: center;
+}
+
+img {
+	height: 75vh;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+.next {
+	font-family: 'Material Icons';
+	font-weight: normal;
+	font-style: normal;
+	font-size: 24px;
+	line-height: 1;
+	text-transform: none;
+	letter-spacing: normal;
+	word-wrap: normal;
+	white-space: nowrap;
+	direction: ltr;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+
+	display: inline-block;
+	float: right;
+	margin-bottom: -48px;
+	height: 24px;
+	width: 24px;
+	padding: 12px;
+	pointer-events: initial;
+}
+
+.website.loaded {
+	height: 100vh;
+	width: 100vw;
+	display: inline-block;
+	-webkit-animation-fill-mode: backwards !important;
+	perspective: 200vw;
+	animation: pan 5.4s ease-in-out 8.9s;
+	position: relative;
+	transition: left 1s ease-in-out, top 1s ease-in-out;
+}
+
+.page-0 {
+	left: 0px;
+	top: 0px;
+}
+
+.page-1 {
+	left: 0px;
+	top: -100vh;
+}
+
+.page-2 {
+	left: -100vw;
+	top: 0px;
+}
+
+.page-3 {
+	left: -100vw;
+	top: -100vh;
+}
+
+.page-4 {
+	left: -100vw;
+	top: -200vh;
+}
+
+.page-5 {
+	left: -100vw;
+	top: -300vh;
+}
+
+.page-6 {
+	left: -200vw;
+	top: 0px;
+}
+
+.page-7 {
+	left: -200vw;
+	top: -100vh;
+}
+
+.page-8 {
+	left: -300vw;
+	top: 0px;
+}
+
+.page-9 {
+	left: -300vw;
+	top: -100vh;
+}
+
+.page-10 {
+	left: -400vw;
+	top: 0px;
+}
+
+.page-11 {
+	left: -400vw;
+	top: -100vh;
+}
+
+.page-12 {
+	left: -500vw;
+	top: 0px;
+}
+
+.page-13 {
+	left: -500vw;
+	top: -100vh;
+}
+
+.page-14 {
+	left: -500vw;
+	top: -200vh;
+}
+
+.page-15 {
+	left: -500vw;
+	top: -200vh;
+}
+
+.cube {
+	transition: opacity 1s;
+	opacity: 0;
+}
+
+.loaded .cube {
+	opacity: 1;
+	display: inline-block;
+	width: 100vw;
+	height: 100vh;
+	position: relative;
+	animation: cube 12s ease-in-out;
+	-webkit-transform-style: preserve-3d;
+}
+
+.page-15 .cube {
+	opacity: 0;
+}
+
+.loaded .cube > * {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	display: inline-block;
+	width: 100vw;
+	height: 100vh;
+	box-sizing: border-box;
+	-webkit-transform-style: preserve-3d;
+	backface-visibility: hidden;
+}
+
+.loaded .cover {
+	animation: border 1.5s ease-in-out 12.8s;
+	z-index: 1;
+	padding: 20px;
+	border: 2px solid black;
+	height: inherit;
+	background-color: white;
+	box-sizing: border-box;
+	position: relative;
+}
+
+.loaded .extension {
+	animation: drop 1.5s ease-in-out 12.8s;
+	padding: 20px;
+	border: 2px solid black;
+	height: 100vh;
+	box-sizing: border-box;
+	background-color: white;
+}
+
+.loaded .cube-front {
+	transform: translateZ(50vw);
+	animation: cube-front 12s ease-in-out;
+}
+
+.loaded .cube-top {
+	transform: translateY(-50vh) rotateX(90deg);
+	animation: cube-top 12s ease-in-out;
+}
+
+.loaded .cube-back {
+	transform: translateZ(-50vw) rotateY(180deg);
+	animation: cube-back 12s ease-in-out;
+}
+
+.loaded .cube-bottom {
+	transform: translateY(50vh) rotateX(-90deg);
+	animation: cube-bottom 12s ease-in-out;
+}
+
+.loaded .cube-right {
+	transform: translateX(50vw) rotateY(90deg);
+	animation: cube-right 12s ease-in-out;
+}
+
+.loaded .cube-left {
+	transform: translateX(-50vw) rotateY(-90deg);
+	animation: cube-left 12s ease-in-out;
+}
+/*
+Sequence: front-right-back-left-top-bottom-front-ending
+*/
+
+@-webkit-keyframes opacity {
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
+
+@-webkit-keyframes border {
+	from {border-color: black;}
+	to {border-color: rgba(0, 0, 0, 0.46);}
+}
+
+@-webkit-keyframes drop {
+	from {margin-top: -100vh; border-color: black;}
+	to {margion-top: 0px; border-color: rgba(0, 0, 0, 0.46);}
+}
+
+@-webkit-keyframes pan {
+	0% {left: 0px; transform: translateZ(-200vh);}
+	75% {left: -500vw; transform: translateZ(-200vh);}
+	100% {left: 0px; transform: translateZ(0px);}
+}
+
+@-webkit-keyframes cube {
+	0% {transform: rotate3d(0, 0, 0, 0deg);}
+	10% {transform: rotate3d(0, 1, 0, -90deg);}
+	20% {transform: rotate3d(0, 1, 0, -180deg);}
+	30% {transform: rotate3d(0, 1, 0, -270deg);}
+	40% {transform: rotate3d(0, 1, 0, -360deg);}
+	40.00001% {transform: rotate3d(0, 0, 0, 0deg);}
+	50% {transform: rotate3d(1, 0, 0, -90deg);}
+	60% {transform: rotate3d(1, 0, 0, 90deg);}
+	70% {transform: rotate3d(1, 0, 0, 0deg);}
+	100% {transfrom: rotate3d(1, 0, 0, 0deg);}
+}
+
+@-webkit-keyframes cube-front {
+	0% {transform: translateZ(50vw);}
+	40% {transform: translateZ(50vw);}
+	50% {transform: translateZ(50vh);}
+	70% {transform: translateZ(50vh);}
+	75% {transform: translateZ(0px);}
+	100% {transform: translateZ(0px);}
+}
+
+@-webkit-keyframes cube-top {
+	0% {transform-origin: center center; height: 100vw; transform: translateY(-50vw) rotateY(0deg) rotateX(90deg); left: 0px;}
+	40% {transform-origin: center center; height: 100vw; transform: translateY(-50vw) rotateY(0deg) rotateX(90deg); left: 0px;}
+	50% {transform-origin: center center; height: 100vh; transform: translateY(-50vh) rotateY(0deg) rotateX(90deg); left: 0px;}
+	60% {transform-origin: center center; height: 100vh; transform: translateY(-50vh) rotateY(0deg) rotateX(90deg); left: 0px;}
+	70% {transform-origin: center center; height: 100vh; transform: translateY(-50vh) rotateY(0deg) rotateX(90deg); left: 0px;}
+	70.00001% {transform-origin: left center; height: 100vh; transform: translateY(0px) rotateY(91deg) rotateX(0deg); left: 400vw;}
+	90% {transform-origin: left center; height: 100vh; transform: translateY(0px) rotateY(91deg) rotateX(0deg); left: 400vw;}
+	95% {transform-origin: left center; height: 100vh; transform: translateY(0px) rotateY(0deg) rotateX(0deg); left: 400vw;}
+	100% {transform-origin: left center; height: 100vh; transform: translateY(0px) rotateY(0deg) rotateX(0deg); left: 400vw;}
+}
+
+@-webkit-keyframes cube-back {
+	0% {transform-origin: center center; transform: translateZ(-50vw) rotateY(180deg); left: 0px;}
+	70% {transform-origin: center center; transform: translateZ(-50vw) rotateY(180deg); left: 0px;}
+	70.00001% {transform-origin: left center; transform: translateZ(0px) rotateY(91deg)); left: 200vw;}
+	80% {transform-origin: left center; transform: translateZ(0px) rotateY(91deg); left: 200vw;}
+	85% {transform-origin: left center; transform: translateZ(0px) rotateY(0deg); left: 200vw;}
+	100% {transform-origin: left center; transform: translateZ(0px) rotateY(0deg); left: 200vw;}
+}
+
+@-webkit-keyframes cube-bottom {
+	0% {transform-origin: center center; height: 100vw; transform: translateY(calc(50vh - (50vw - 50vh))) rotateY(0deg) rotateX(-90deg); left: 0px;}
+	55% {transform-origin: center center; height: 100vw; transform: translateY(calc(50vh - (50vw - 50vh))) rotateY(0deg) rotateX(-90deg); left: 0px;}
+	55.00001% {transform-origin: center center; height: 100vh; transform: translateY(50vh) rotateY(0deg) rotateX(-90deg); left: 0px;}
+	70% {transform-origin: center center; height: 100vh; transform: translateY(50vh) rotateY(0deg) rotateX(-90deg); left: 0px;}
+	70.00001% {transform-origin: left center; height: 100vh; transform: translateY(0px) rotateY(91deg) rotateX(0deg); left: 500vw;}
+	95% {transform-origin: left center; height: 100vh; transform: translateY(0px) rotateY(91deg) rotateX(0deg); left: 500vw;}
+	100% {transform-origin: left center; height: 100vh; transform: translateY(0px) rotateY(0deg) rotateX(0deg); left: 500vw;}
+}
+
+@-webkit-keyframes cube-right {
+	70% {transform-origin: center center; transform: translateX(50vw) rotateY(90deg); left: 0px;}
+	70.00001% {transform-origin: left center; transform: translateX(0px) rotateY(91deg); left: 100vw;}
+	75% {transform-origin: left center; transform: translateX(0px) rotateY(91deg); left: 100vw;}
+	80% {transform-origin: left center; transform: translateX(0px) rotateY(0deg); left: 100vw;}
+	100% {transform-origin: left center; transform: translateX(0px) rotateY(0deg); left: 100vw;}
+}
+
+@-webkit-keyframes cube-left {
+	70% {transform-origin: center center; transform: translateX(-50vw) rotateY(-90deg); left: 0px;}
+	70.00001% {transform-origin: left center; transform: translateX(-50vw) rotateY(91deg); left: 300vw;}
+	85% {transform-origin: left center; transform: translateX(0px) rotateY(91deg); left: 300vw;}
+	90% {transform-origin: left center; transform: translateX(0px) rotateY(0deg); left: 300vw;}
+	100% {transform-origin: left center; transform: translateX(0px) rotateY(0deg); left: 300vw;}
+}
+</style>
+<body onload="$('.website').addClass('loaded');">
+<div class="website page-0">
+	<div class="cube">
+		<div class="cube-front">
+			<div class="cover">
+				<div class="next">
+					redo
+				</div>
+				<h1>
+					Life
+				</h1>
+				<img src="ELA Images/Rollercoaster.png">
+				<p>
+					Throughout my life, I have had my ups and downs. I went from an apartment that I don't remember, to a foster home, to Maine. A lot has happened in my life, half of it I don't remember (this will be explained later).
+				</p>
+			</div>
+			<div class="extension">
+				<div class="next">
+					redo
+				</div>
+				<img src="ELA Images/Calendar.jpg">
+				<p>
+					All of these events that have happened affect me in some way. If they didn't happen, my life would be drastically different. Although many of the events described in this website seem very negative, I am glad they happened that way, because I like the positive aspects that came out of it.
+				</p>
+			</div>
+		</div>
+		<div class="cube-right">
+			<div class="cover">
+				<div class="next">
+					redo
+				</div>
+				<h1>
+					Early on
+				</h1>
+				<img src="ELA Images/Apartment.png">
+				<p>
+					When I was about three years old, I lived in an apartment that I don't remember much of. My only caretakers were my father, who wasn't home very often as he was a truck driver, and my sisters, the oldest of which was only ten years old.
+				<p>
+			</div>
+			<div class="extension">
+				<div class="next">
+					redo
+				</div>
+				<img src="ELA Images/Brain.jpg">
+				<p>
+					Your brain has a natural ability to fill in a picture based on what you remember. Since I don't remember hardly anything about the apartment, what is shown below is an artificial image that my brain created.
+				<p>
+			</div>
+			<div class="extension">
+				<div class="next">
+					redo
+				</div>
+				<img src="ELA Images/Fan.jpg">
+				<p>
+					In my "artificial image," there wasn't much in the apartment. I had a bunk bed, of which I slept on the bottom bunk. As far as I know, nobody slept on the top bunk. Behind my head, a white cageless fan spun slowly. In the rhythm of a heartbeat, one of the fan blades would swoop by, behind where I slept. I didn't talk much in this image.
+				</p>
+			</div>
+			<div class="extension">
+				<div class="next">
+					redo
+				</div>
+				<img src="ELA Images/Stars.jpg">
+				<p>
+					Although this "artificial image," isn't even remotely true, a few basic examples can be gathered about this. The image was naturally derived from the little information that I remember. Different things in the image represent different ideas that actually (probably) happened.
+				</p>
+			</div>
+		</div>
+		<div class="cube-back">
+			<div class="cover">
+				<div class="next">
+					redo
+				</div>
+				<h1>
+					Foster Care
+				</h1>
+				<img src="ELA Images/Car.jpg">
+				<p>
+					In the "artificial image" that I described earlier, I followed the black car next door to a [relatively to the apartment] noisy place where there were a lot of other people. Of course, this is exaggerated as a result of my brain making up a story. Below is what I remember from a couple of years later.
+				</p>
+			</div>
+			<div class="extension">
+				<div class="next">
+					redo
+				</div>
+				<img src="ELA Images/House.jpg">
+				<p>
+					The foster home was (probably) not next door to the apartment, but I suspect that it was pretty close, and the distance was just exaggerated by the "artificial image." In the foster home I spent most of my time wandering around, watching TV or playing in the snow. I was pretty much isolated. I didn't develop the social skills that I really needed. I didn't really learn much, except a little bit from preschool. At the age of five, I didn't even know what pork chop was. I had only heard of chicken because the family that I lived with caught their dog chewing a chicken bone, and they were talking about it.
+				</p>
+			</div>
+		</div>
+		<div class="cube-left">
+			<div class="cover">
+				<div class="next">
+					redo
+				</div>
+				<h1>
+					Maine
+				</h1>
+				<img src="ELA Images/Curiosity.jpg">
+				<p>
+					When I came to Maine, my life completely changed. I developed myself to the person that I am now, even if that meant a little bit of trouble along the way.
+				<p>
+			</div>
+			<div class="extension">
+				<div class="next">
+					redo
+				</div>
+				<img src="ELA Images/Books.jpg">
+				<p>
+					In Maine, I had trouble major trouble socially. I became prone to temper tantrums. During lunch, I would be teased, which would make me really mad. After fourth grade, I finally stopped, and didn't get bullied again. Due to my lack of social skills, I developed a drive for learning. I wanted to learn everything.
+				</p>
+			</div>
+		</div>
+		<div class="cube-top">
+			<div class="cover">
+				<div class="next">
+					redo
+				</div>
+				<h1>
+					The Depression
+				</h1>
+				<img src="ELA Images/Depression.jpg">
+				<p>
+					During seventh grade, I fell into a depression. It distracted me from my school work, so I fell academically. It was the worst year of my life.
+				</p>
+			</div>
+			<div class="extension">
+				<div class="next">
+					redo
+				</div>
+				<img src="ELA Images/Bedroom.jpg">
+				<p>
+					I would go into my bedroom and have a meltdown about mistakes that I had made in the past. Once one flashback came, I didn't have control over myself, all I did was think over and over again the worst mistakes that I had made and hate myself more and more. I was trapped in the endless carousel of flashbacks. The depression finally ended half-way through eighth grade, although it had diminished greatly at the beginning of the year.
+				</p>
+			</div>
+		</div>
+		<div class="cube-bottom">
+			<div class="cover">
+				<div class="next">
+					redo
+				</div>
+				<h1>
+					Now
+				</h1>
+				<img src="ELA Images/Memories.jpg">
+				<p>
+					At the moment, I am a lot more relaxed. I still am affected by some of the things that have happened in the past. I have trouble remembering good things that happen and accomplishments that I make or have made, no thanks to the depression. I have mostly recovered from the social failure, thanks to the foster home. My life overall has been good. It is simply easier for me to symbolize my hardships, as I spent 18 months doing nothing but thinking about them.
+				</p>
+			</div>
+			<div class="extension">
+				<div class="next">
+					redo
+				</div>
+				<img src="ELA Images/Sunshine.jpg">
+				<p>
+					I have had a pretty happy life. Everything that I described here could've been a lot worse. I am simply glad that it wasn't. I am also glad that these things fell into place in such a way that built me up to the person that I am now. I feel that I have the freedom to set the future that I want to set. My goal is to get the highest GPA of my class, giving me a UMaine presidential scholarship.
+				</p>
+			</div>
+			<div class="extension" style="overflow: auto;">
+				<div class="next">
+					close
+				</div>
+				<h1>
+					Grading Summary
+				</h1>
+				<dl>
+					<dt><b>
+						Symbols used: 12
+					</b></dt>
+					<dd>
+						Rollercoaster
+					</dd>
+					<dd>
+						Calendar
+					</dd>
+					<dd>
+						Gears
+					</dd>
+					<dd>
+						Fan
+					</dd>
+					<dd>
+						Car
+					</dd>
+					<dd>
+						Toy house
+					</dd>
+					<dd>
+						Pork chops
+					</dd>
+					<dd>
+						Rover
+					</dd>
+					<dd>
+						Books
+					</dd>
+					<dd>
+						Bedroom
+					</dd>
+					<dd>
+						Blurred images
+					</dd>
+					<dd>
+						Sunshine
+					</dd>
+					<dt><b>
+						Topics addressed: 2
+					</b></dt>
+					<dd>
+						Freedom/entrapment
+					</dd>
+					<dd>
+						Future opportunities
+					</dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+<html>
